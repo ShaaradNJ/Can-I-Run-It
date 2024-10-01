@@ -1,4 +1,3 @@
-// fetch.go
 package main
 
 import (
@@ -35,7 +34,6 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 		}
 	})
 
-	// Scraping system requirements
 	c.OnHTML("li", func(h *colly.HTMLElement) {
 		if strings.Contains(h.ChildText("strong"), "CPU") {
 			gameRequirements.MinCPU = h.Text
@@ -72,7 +70,6 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 		return GameRequirements{}, fmt.Errorf("error visiting the game list page: %v", err)
 	}
 
-	// If a matching game was found
 	if visit_here != "" {
 		game_url := domain + visit_here
 		fmt.Printf("Full game URL: %s\n", game_url)
