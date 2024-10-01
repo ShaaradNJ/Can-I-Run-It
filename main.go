@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-	PrintASCIIArtWithInfo()
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Enter a game name:")
 	game_name, _ := reader.ReadString('\n')
@@ -21,11 +20,12 @@ func main() {
 		return
 	}
 
+	PrintASCIIArtWithInfo()
 	fmt.Println("Minimum System Requirements:")
-	fmt.Println("CPU:", gameRequirements.MinCPU)
-	fmt.Println("RAM:", gameRequirements.MinRAM)
-	fmt.Println("Video Card:", gameRequirements.MinVideoCard)
-	fmt.Println("Dedicated Video RAM:", gameRequirements.MinDedicatedVideoRAM)
-	fmt.Println("Disk Space:", gameRequirements.MinDiskSpace)
-	fmt.Println("Operating System:", gameRequirements.MinOS)
+	fmt.Println(gameRequirements.MinCPU)
+	fmt.Println(gameRequirements.MinRAM)
+	fmt.Println(gameRequirements.MinVideoCard)
+	fmt.Println(gameRequirements.MinDedicatedVideoRAM)
+	fmt.Println(gameRequirements.MinDiskSpace)
+	fmt.Println(gameRequirements.MinOS)
 }
