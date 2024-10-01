@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"strings"
+	"time"
 
 	"github.com/gocolly/colly/v2"
 )
@@ -22,6 +24,9 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 
 	domain := "https://www.systemrequirementslab.com"
 	c := colly.NewCollector()
+	c.SetClient(&http.Client{
+		Timeout: 30 * time.Second,
+	})
 
 	c.OnHTML("a", func(h *colly.HTMLElement) {
 		titleAttr := h.Attr("title")
