@@ -1,4 +1,3 @@
-// main.go
 package main
 
 import (
@@ -9,20 +8,19 @@ import (
 )
 
 func main() {
+	PrintASCIIArtWithInfo()
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Enter a game name:")
 	game_name, _ := reader.ReadString('\n')
 
 	game_name = strings.TrimSpace(game_name)
 
-	// Fetch the game requirements
 	gameRequirements, err := FetchGameRequirements(game_name)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 
-	// Print the system requirements
 	fmt.Println("Minimum System Requirements:")
 	fmt.Println("CPU:", gameRequirements.MinCPU)
 	fmt.Println("RAM:", gameRequirements.MinRAM)
