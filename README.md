@@ -29,6 +29,6 @@ This project is a command-line tool written in Go that scrapes the minimum syste
     ```
 
 3. Run the project:
-```bash
-go run .
-```
+   ```bash
+    go run .
+   ```
