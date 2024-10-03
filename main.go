@@ -21,11 +21,12 @@ func main() {
 	}
 
 	PrintASCIIArtWithInfo()
-	fmt.Println("Minimum System Requirements:")
+	fmt.Println("Minimum System Requirements for:", gameRequirements.FinalGameName)
 	fmt.Println(gameRequirements.MinCPU)
 	fmt.Println(gameRequirements.MinRAM)
 	fmt.Println(gameRequirements.MinVideoCard)
 	fmt.Println(gameRequirements.MinDedicatedVideoRAM)
 	fmt.Println(gameRequirements.MinDiskSpace)
 	fmt.Println(gameRequirements.MinOS)
+
 }

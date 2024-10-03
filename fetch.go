@@ -16,6 +16,7 @@ type GameRequirements struct {
 	MinDedicatedVideoRAM string
 	MinDiskSpace         string
 	MinOS                string
+	FinalGameName        string
 }
 
 func FetchGameRequirements(game_name string) (GameRequirements, error) {
@@ -38,6 +39,9 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 			visit_here = h.Attr("href")
 			fmt.Println("Game found:", gameTitle)
 		}
+	})
+	c.OnHTML("h2 em", func(h *colly.HTMLElement) {
+		gameRequirements.FinalGameName = h.Text
 	})
 
 	c.OnHTML("li", func(h *colly.HTMLElement) {
