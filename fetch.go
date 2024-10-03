@@ -21,6 +21,7 @@ type GameRequirements struct {
 func FetchGameRequirements(game_name string) (GameRequirements, error) {
 	var gameRequirements GameRequirements
 	var visit_here string
+	first_char := string(game_name[0])
 
 	domain := "https://www.systemrequirementslab.com"
 	c := colly.NewCollector()
@@ -69,15 +70,16 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 			gameRequirements.MinOS = h.Text
 		}
 	})
+	game_new_url := "https://www.systemrequirementslab.com/all-games-list/?filter=" + first_char
 
-	err := c.Visit("https://www.systemrequirementslab.com/all-games-list")
+	err := c.Visit(game_new_url)
 	if err != nil {
 		return GameRequirements{}, fmt.Errorf("error visiting the game list page: %v", err)
 	}
 
 	if visit_here != "" {
 		game_url := domain + visit_here
-		fmt.Printf("Full game URL: %s\n", game_url)
+		// fmt.Printf("Full game URL: %s\n", game_url)
 
 		err := c.Visit(game_url)
 		if err != nil {
