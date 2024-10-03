@@ -24,7 +24,7 @@ This project is a command-line tool written in Go that scrapes the minimum syste
     ```
 
 2. Install dependencies:
-    ```bash
+   ```bash
     go mod tidy
     ```
 
