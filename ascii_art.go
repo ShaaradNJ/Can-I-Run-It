@@ -18,5 +18,10 @@ func PrintASCIIArtWithInfo() {
 ⢸⣿⣷⣶⡎⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 `
+	fmt.Printf("	Can I Run It	")
 	fmt.Println(asciiArt)
 }
+
+// func main() {
+// 	PrintASCIIArtWithInfo()
+// }
