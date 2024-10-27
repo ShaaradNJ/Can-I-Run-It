@@ -50,7 +50,7 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 		}
 	})
 	c.OnHTML("li", func(h *colly.HTMLElement) {
-		if strings.Contains(h.ChildText("strong"), "RAM") {
+		if strings.Contains(h.ChildText("strong"), "RAM") && !strings.Contains(h.ChildText("strong"), "DEDICATED VIDEO RAM") {
 			gameRequirements.MinRAM = h.Text
 		}
 	})

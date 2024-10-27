@@ -28,5 +28,6 @@ func main() {
 	fmt.Println(gameRequirements.MinDedicatedVideoRAM)
 	fmt.Println(gameRequirements.MinDiskSpace)
 	fmt.Println(gameRequirements.MinOS)
-
+	fmt.Println("			**********			")
+	fmt.Println()
 }
