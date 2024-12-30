@@ -83,8 +83,6 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 
 	if visit_here != "" {
 		game_url := domain + visit_here
-		// fmt.Printf("Full game URL: %s\n", game_url)
-
 		err := c.Visit(game_url)
 		if err != nil {
 			return GameRequirements{}, fmt.Errorf("error visiting the game page: %v", err)
@@ -92,6 +90,5 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 	} else {
 		return GameRequirements{}, fmt.Errorf("no matching game found")
 	}
-
 	return gameRequirements, nil
 }
