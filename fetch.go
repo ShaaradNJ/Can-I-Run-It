@@ -24,7 +24,7 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 	var visit_here string
 	first_char := string(game_name[0])
 
-	domain := "https://www.systemrequirement"
+	domain := "https://www.systemrequirementslab.com/all-games-list"
 	c := colly.NewCollector()
 	c.SetClient(&http.Client{
 		Timeout: 30 * time.Second,
