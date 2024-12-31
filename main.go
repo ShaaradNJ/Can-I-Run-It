@@ -30,5 +30,5 @@ func main() {
 	fmt.Println(gameRequirements.MinOS)
 	fmt.Println("			**********			")
 	fmt.Println()
-	Download()
+	// Download()
 }
