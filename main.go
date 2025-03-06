@@ -8,16 +8,25 @@ import (
 )
 
 func main() {
+	ConnectDB() // Ensure MongoDB is connected
+
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Enter a game name:")
 	game_name, _ := reader.ReadString('\n')
-
 	game_name = strings.TrimSpace(game_name)
 
 	gameRequirements, err := FetchGameRequirements(game_name)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
+	}
+
+	// Save the game requirements to MongoDB
+	err = SaveGameRequirements(gameRequirements)
+	if err != nil {
+		fmt.Println("Error saving to MongoDB:", err)
+	} else {
+		fmt.Println("Game requirements saved successfully")
 	}
 
 	PrintASCIIArtWithInfo()
@@ -30,5 +39,4 @@ func main() {
 	fmt.Println(gameRequirements.MinOS)
 	fmt.Println("			**********			")
 	fmt.Println()
-	// Download()
 }

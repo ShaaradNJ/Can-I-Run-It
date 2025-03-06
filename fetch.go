@@ -82,3 +82,5 @@ func FetchGameRequirements(game_name string) (GameRequirements, error) {
 
 	return gameRequirements, nil
 }
+
+
